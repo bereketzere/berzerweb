@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+
+
+<?php 
+require('config.php');
+if(isset($_POST['submit'])){
+  $email1=$_POST['email1'];
+  $email2=$_POST['email2'];
+  $pass1=$_POST['pass1'];
+   $pass2=$_POST['pass2'];
+   if($email1==$email2){
+    //all good carry on
+
+$name=mysql_escape_string($POST['name']);
+$lname=mysql_escape_string($POST['lname']);
+$uname=mysql_escape_string($POST['uname']);
+$email1=mysql_escape_string($POST[$email1]);
+$email2=mysql_escape_string($POST[$email2]);
+$email1=mysql_escape_string($POST[$pass1]);
+$email2=mysql_escape_string($POST[$pass2]);
+
+mysql_query("insert INTO 'users'('id','name', 'lname','email','pass') VALUES (NULL,'$name','$lname','$uname','$email1','$pass1')"")
+
+
+   }
+
+}else{
+  echo "sorry, Your passwords donot much.<br>";
+  exit();
+
+
+}else{
+  echo "sorry your email's do not much <br /><br />";
+}
+
+$form= <<<EOT
+<form action="register.php" method="post">
+    <p>Register Below</p>
+            <input type="text" name="name" placeholder="First Name" aria-haspopup="true">
+             <input type="text" name="lname" placeholder="Last Name" aria-haspopup="true">     
+        <input type="text" name="uname" placeholder="username" aria-haspopup="true">
+              <input type="text" name="Email1" placeholder="Email" aria-haspopup="true">    
+          <input type="text" name="Email2" placeholder="conform email" aria-haspopup="true">       
+        <input type="password" name="pass1" placeholder="password" aria-haspopup="true">       
+        <input type="password" name="pass2" placeholder="confirm password" aria-haspopup="true">
+         <input type="password" name="Repeat_password" placeholder="Repeat password" aria-haspopup="true">
+   <input type="submit" value="Register">
+</form>
+EOT;
+echo $form;
+
+
+?>
+</body>
+</html>
